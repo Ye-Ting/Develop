@@ -3,12 +3,24 @@
 ##前端发展阶段及Docker是什么
 >目标 ： 描述近代前端的发展历程，Docker简明讲解 并阐述 Docker 化对前端的优点
 
+相关链接 
+
+* [Web研发模式的演变](https://github.com/lifesinger/lifesinger.github.com/issues/184)
+* [研发模式的思考](https://github.com/aralejs/aralejs.org/issues/50)
 
 ##Hello Docker
 > 目标：使用 Hello World Demo 来完成一个简单的 Docker Demo
 
 本项目代码维护在 [front-end-docker-sample](https://github.com/Ye-Ting/front-end-docker-sample) 
 
+Dockerfile
+
+```
+FROM nginx
+
+COPY . /usr/share/nginx/html
+
+```
 
 ##Node Express Docker
 > 目标： 使用 Docker 构建一个 Node Express 应用
@@ -21,7 +33,45 @@
 * 启动命令 node bin/www
 * 调试命令 gulp 
 
-###Node Express 应用启动优化
+Dockerfile
+
+```
+FROM node:0.12.7-wheezy
+
+WORKDIR /app
+
+COPY ./package.json /app/
+
+RUN npm install
+
+COPY . /app/
+ 
+EXPOSE 3000
+
+CMD node bin/www 
+```
+
+###Node Express 应用运行优化
+
+Dockerfile 
+
+```
+FROM node:0.12.7-wheezy
+
+WORKDIR /app
+
+RUN npm install -g forever
+
+COPY ./package.json /app/
+
+RUN npm install
+
+COPY . /app/
+ 
+EXPOSE 3000
+
+CMD forever bin/www 
+```
 
 ##Angular Docker Docker
 > 目标：使用 Docker 构建一个 Angular 前端应用
