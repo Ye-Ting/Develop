@@ -13,59 +13,13 @@ Close this.
 
 Close this.
 
-##Node Express Docker
-> 目标： 使用 Docker 构建一个 Node Express 应用
+## Node Express Docker
+> 目标： 用 Docker 镜像的方式搭建 Node Express 应用
 
-本项目代码 [node-express-docker-sample](https://github.com/Ye-Ting/node-express-docker-sample)
-
-借助  Yeomen 生成一个 Node Express 应用 [Yeomen Express generator ](https://github.com/petecoop/generator-express)
-
-* 默认暴露 3000 端口 通过环境变量 PORT 修改
-* 启动命令 node bin/www
-* 调试命令 gulp 
-
-Dockerfile
-
-```
-FROM node:0.12.7-wheezy
-
-WORKDIR /app
-
-COPY ./package.json /app/
-
-RUN npm install
-
-COPY . /app/
- 
-EXPOSE 3000
-
-CMD node bin/www 
-```
-
-###Node Express 应用运行优化
-
-Dockerfile 
-
-```
-FROM node:0.12.7-wheezy
-
-WORKDIR /app
-
-RUN npm install -g forever
-
-COPY ./package.json /app/
-
-RUN npm install
-
-COPY . /app/
- 
-EXPOSE 3000
-
-CMD forever bin/www 
-```
+Close this.
 
 ##Angular Docker Docker
-> 目标：使用 Docker 构建一个 Angular 前端应用
+> 目标：用 Docker 镜像的方式搭建 Angular 前端应用
 
 本项目代码维护在 [angular-docker-sample](https://github.com/Ye-Ting/angular-docker-sample)
 
