@@ -3,10 +3,11 @@
 
 本项目代码 [node-express-docker-sample](https://github.com/Ye-Ting/node-express-docker-sample)
 
+Demo ：http://yeting-front-node-express-docker-sample.daoapp.io/
 
 ### Node Express 应用搭建
 
-首先，借助  Yeomen 生成一个 Node Express 应用 [Yeomen Express generator ](https://github.com/petecoop/generator-express)
+首先，借助 [Yeomen Express generator ](https://github.com/petecoop/generator-express) 生成一个 Node Express 应用 
 
 具体的操作都在上面的 Repo 中有说明，这里不做赘述。
 
@@ -22,6 +23,8 @@
 
 ```
 FROM node:0.12.7-wheezy
+
+MAINTAINER YeTing "me@yeting.info"
 ```
 
 接着，优先将 `./package.json` 复制到镜像中，预先加载第三方依赖。
@@ -36,7 +39,7 @@ RUN npm install
 
 * 每次 Dokcer 构建成功之后就会有缓存，这样的写法能提高缓存的命中率，优化 Docker 构建镜像的速度
 
-然后，将 Express 应用程序复制到 /app，暴露 3000 端口
+最后，将 Express 应用程序复制到 /app，暴露 3000 端口
 
 ```
 COPY . /app/

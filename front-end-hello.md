@@ -3,6 +3,8 @@
 
 本项目代码维护在 [front-end-docker-sample](https://github.com/Ye-Ting/front-end-docker-sample) 
 
+Demo 地址 :http://yeting-front-end-docker-sample.daoapp.io/
+
 ### Docker 化应用的关键元素
 
 * 镜像是 Docker 应用的静态表示，是应用的交付件，镜像中包含了应用运行所需的所有依赖：包括应用代码、应用依赖库、应用运行时和操作系统。
@@ -20,6 +22,8 @@ Dockerfile
 
 ```
 FROM nginx
+
+MAINTAINER YeTing "me@yeting.info"
 ```
 
 接着，将代码复制到目标目录。
@@ -56,6 +60,3 @@ Hello Docker !!
 欢迎进入 Docker 的世界!!
 ```
 
-Demo 地址
-
-http://yeting-front-end-docker-sample.daoapp.io/

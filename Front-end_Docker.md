@@ -21,85 +21,8 @@ Close this.
 ##Angular Docker Docker
 > 目标：用 Docker 镜像的方式搭建 Angular 前端应用
 
-本项目代码维护在 [angular-docker-sample](https://github.com/Ye-Ting/angular-docker-sample)
+Close this.
 
-借助 Yeoman [generator-gulp-angular](https://github.com/Swiip/generator-gulp-angular) 生成一个 Angular 应用 
-
-```
-npm install -g yo gulp bower
-npm install -g generator-gulp-angular
-yo gulp-angular
-```
-
-* 依赖 node bower gulp 
-* 调试命令 gulp serve
-* 构建命令 gulp build 
-* 构建目录 /dist
-
-* 默认暴露 80 端口 
-
-选择 node:0.12.7-wheezy 不会缺少各种各样的东西
-
-fonts 在 build 的时候不会自动加载，需要修改 bower.json 
-
-```
-{
-"dependencies": {
-	.....
-  },
-"overrides": {
-    "bootstrap-sass-official": {
-      "main": [
-        "assets/stylesheets/_bootstrap.scss",
-        "assets/fonts/bootstrap/glyphicons-halflings-regular.eot",
-        "assets/fonts/bootstrap/glyphicons-halflings-regular.svg",
-        "assets/fonts/bootstrap/glyphicons-halflings-regular.ttf",
-        "assets/fonts/bootstrap/glyphicons-halflings-regular.woff",
-        "assets/fonts/bootstrap/glyphicons-halflings-regular.woff2"
-      ]
-    }
-  }
-}
-
-```
-
-Dockerfile
-
-```
-FROM node:0.12.7-wheezy
-
-RUN apt-key adv --keyserver pgp.mit.edu --recv-keys 573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62
-RUN echo "deb http://nginx.org/packages/mainline/debian/ wheezy nginx" >> /etc/apt/sources.list
-
-ENV NGINX_VERSION 1.7.12-1~wheezy
-
-RUN apt-get update && \
-    apt-get install -y ca-certificates nginx && \
-    rm -rf /var/lib/apt/lists/*
-
-# forward request and error logs to docker log collector
-RUN ln -sf /dev/stdout /var/log/nginx/access.log
-RUN ln -sf /dev/stderr /var/log/nginx/error.log
-
-EXPOSE 80
-
-RUN npm install -g bower gulp
-
-WORKDIR /app
-
-COPY ./package.json /app/
-COPY ./bower.json /app/
-RUN npm install && bower install --allow-root
-
-COPY . /app/
-
-RUN gulp build 
-
-RUN cp -R /app/dist/*  /usr/share/nginx/html
-
-CMD ["nginx", "-g", "daemon off;"]
-
-```
 ##Angular Docker Advanced
 > 目标：Angular 前端应用的 Docker 实践技巧 
 
@@ -215,6 +138,8 @@ CMD gulp build && cp -r dist/* /usr/share/nginx/html/ && nginx -g 'daemon off;'
 ```
 
 ###Angular 应用根据环境变量切换不同的 CDN
+
+gulp-cdnizer
 
 env.js
 
