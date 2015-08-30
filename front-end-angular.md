@@ -1,4 +1,4 @@
-##Angular Docker Docker
+## Angular Docker
 > 目标：用 Docker 镜像的方式搭建 Angular 前端应用
 
 本项目代码维护在 [angular-docker-sample](https://github.com/Ye-Ting/angular-docker-sample)
