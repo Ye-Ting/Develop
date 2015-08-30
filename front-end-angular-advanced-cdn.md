@@ -10,7 +10,7 @@ gulp 是一个很好用的构建工具，不紧是因为他的语法灵活，更
 
 在这个例子中使用 [gulp-cdnizer](https://www.npmjs.com/package/gulp-cdnizer) 
 
-### Angular 优化
+### Angular 项目构建优化
 
 首先，安装插件 `gulp-cdnizer`
 
