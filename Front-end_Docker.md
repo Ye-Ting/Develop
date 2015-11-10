@@ -3,10 +3,10 @@
 ## 前端发展阶段
 >目标：描述近代前端的发展历程，引出前端部署问题
 
-## 也许让运维也学学前端，那么天下就天平了
+## 也许让运维也学学前端，那么天下就太平了
 >目标：定义 Docker 与前端的关系，介绍前端部署的几种方式，阐述 Docker 化的前端的优点所在
 
-[也许让运维也学学前端，那么天下就天平了](https://github.com/Ye-Ting/Develop/blob/master/front-end-deploy.md)
+[也许让运维也学学前端，那么天下就太平了](https://github.com/Ye-Ting/Develop/blob/master/front-end-deploy.md)
 
 ## Hello Docker
 > 目标：使用静态页面来完成一个简单的 Docker Demo
